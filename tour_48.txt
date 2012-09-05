@@ -1,0 +1,23 @@
+package main
+
+import (
+	"fmt"
+	"math/cmplx"
+)
+
+func Cbrt(x complex128) complex128 {
+	z := x
+	for i := 0; i < 10; i++ {
+	
+		z_top := cmplx.Pow(z, 3) - x
+		z_bot := 3 * cmplx.Pow(z, 2)
+		z = z - (z_top / z_bot)
+	
+	}
+	
+	return z
+}
+
+func main() {
+	fmt.Println(Cbrt(2))
+}

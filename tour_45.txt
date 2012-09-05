@@ -1,0 +1,22 @@
+package main
+
+import (
+	"tour/wc"
+	"strings"
+)
+
+func WordCount(s string) map[string]int {
+
+	count := map[string]int{}
+
+	words := strings.Fields(s)
+	for _, word := range words {
+		count[word]++
+	}
+
+	return count
+}
+
+func main() {
+	wc.Test(WordCount)
+}

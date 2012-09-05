@@ -1,0 +1,40 @@
+package main
+
+import (
+	"tour/pic"
+)
+
+func f1(x, y int) uint8 {
+	return uint8(x+y)
+}
+
+func f2(x, y int) uint8 {
+	return uint8(x^y)
+}
+
+func f3(x, y int) uint8 {
+	return uint8((x+y)/2)
+}
+
+func f4(x, y int) uint8 {
+	return uint8(x*y)
+}
+
+func Pic(dx, dy int) [][]uint8 {
+
+	p := [][]uint8{}
+
+	for y := 0; y < dy; y++ {
+		r := []uint8{}
+		for x := 0; x < dx; x++ {
+			r = append(r, f2(x, y))
+		}
+		p = append(p, r)
+	}
+
+	return p
+}
+
+func main() {
+	pic.Show(Pic)
+}
